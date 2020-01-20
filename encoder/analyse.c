@@ -3292,24 +3292,24 @@ skip_analysis:
                 }
             }
 
-            if( h->mb.b_chroma_me )
-            {
-                if( CHROMA444 )
-                {
-                    x264_mb_analyse_intra( h, &analysis, i_cost );
-                    x264_mb_analyse_intra_chroma( h, &analysis );
-                }
-                else
-                {
-                    x264_mb_analyse_intra_chroma( h, &analysis );
-                    x264_mb_analyse_intra( h, &analysis, i_cost - analysis.i_satd_chroma );
-                }
-                analysis.i_satd_i16x16 += analysis.i_satd_chroma;
-                analysis.i_satd_i8x8   += analysis.i_satd_chroma;
-                analysis.i_satd_i4x4   += analysis.i_satd_chroma;
-            }
-            else
-                x264_mb_analyse_intra( h, &analysis, i_cost );
+            //if( h->mb.b_chroma_me )
+            // {
+            //    if( CHROMA444 )
+            //    {
+            //        x264_mb_analyse_intra( h, &analysis, i_cost );
+            //        x264_mb_analyse_intra_chroma( h, &analysis );
+            //    }
+            //    else
+            //    {
+            //        x264_mb_analyse_intra_chroma( h, &analysis );
+            //        x264_mb_analyse_intra( h, &analysis, i_cost - analysis.i_satd_chroma );
+            //    }
+            //    analysis.i_satd_i16x16 += analysis.i_satd_chroma;
+            //    analysis.i_satd_i8x8   += analysis.i_satd_chroma;
+            //    analysis.i_satd_i4x4   += analysis.i_satd_chroma;
+            //}
+            //else
+            //    x264_mb_analyse_intra( h, &analysis, i_cost );
 
             i_satd_inter = i_cost;
             i_satd_intra = X264_MIN3( analysis.i_satd_i16x16,
